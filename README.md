@@ -4,7 +4,7 @@
 - React JS
 - Redux Toolkit
 - TypeScript
-- Sass
+- Styled Components
 
 ## NPM Packages:
 - react-icons
