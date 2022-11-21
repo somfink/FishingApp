@@ -5,6 +5,7 @@ import {
   HiMapPin,
   HiOutlineMagnifyingGlass,
 } from "react-icons/hi2";
+import { NavLink } from "react-router-dom";
 
 // ANIMATIONS
 
@@ -40,15 +41,6 @@ const activeTile = keyframes`
   }
 `;
 
-const bgAppear = keyframes`
-0% {
-  opacity: 0;
-}
-100% {
-  opacity: 1;
-}
-`;
-
 //  STYLES
 
 export const NavContainer = styled.nav`
@@ -72,34 +64,38 @@ export const NavList = styled.ul`
   align-items: center;
 `;
 
-export const NavItems = styled.li<{ active: boolean }>`
+export const NavItems = styled.li`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  max-width: 25%;
   padding: 1rem;
   border-radius: 30px;
-  background: ${(props) => (props.active ? "#252a6b" : "none")};
-  animation: ${(props) => (props.active ? bgAppear : '')} 0.5s;
+`;
+
+export const StyledNavLink = styled(NavLink)<{ $active: boolean }>`
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => (props.$active ? "#f3f3f3" : "#2683a8")};
 
   & > span {
-    display: ${(props) => (props.active ? "block" : "none")};
-    opacity: ${(props) => (props.active ? 1 : 0)};
-    animation: ${(props) => (props.active ? activeTile : unactiveTile)} 0.5s;
+    display: ${(props) => (props.$active ? "block" : "none")};
+    opacity: ${(props) => (props.$active ? 1 : 0)};
+    animation: ${(props) => (props.$active ? activeTile : unactiveTile)} 0.5s;
     color: #f3f3f3;
     font-size: 1.2rem;
     font-weight: 600;
-    margin-left: 0.5rem;
   }
 
   &:hover {
-    padding: 1rem;
-    background: #252a6b;
     cursor: pointer;
   }
 `;
 
-const iconStyle = css<{ active: boolean }>`
-  color: ${(props) => (props.active ? "#f3f3f3" : "#2683a8")};
+const iconStyle = css`
   font-size: 2rem;
   font-weight: bold;
 `;
