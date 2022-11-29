@@ -9,11 +9,7 @@ export const InputField = styled.input`
   border: none;
   border-bottom: 2px solid #d8d8d8a1;
   transition: .3s ease-out;
-  
-
-  &:first-child {
-    margin-bottom: 2rem;
-  }
+  margin-bottom: 2rem;
 
   &:focus-visible {
     outline: none;

@@ -77,7 +77,7 @@ const LandingPage = () => {
           You can join us for free! If you don't have an account, click the
           register button
         </Paragraph>
-        <SignBtn to="/sign-user">Sign in</SignBtn>
+        <SignBtn to="/sign-user">Sign Up</SignBtn>
       </JoinSection>
     </Modal>
   );

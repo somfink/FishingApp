@@ -6,6 +6,7 @@ import Map from "../Pages/Map/Map";
 import NotFound from "../Pages/NotFound/NotFound";
 import Profile from "../Pages/Profile/Profile";
 import Search from "../Pages/Search/Search";
+import SignForm from "../SignForm/SignForm";
 import { HeaderContainer } from "./Header.styles";
 
 const Header = () => {
@@ -14,7 +15,7 @@ const Header = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} ></Route>
         <Route path="/login-user" element={<LoginForm />} ></Route>
-        <Route path="/sign-user" element={<LoginForm />} ></Route>
+        <Route path="/sign-user" element={<SignForm />} ></Route>
         <Route path="/home" element={<Home />} />
         <Route path="/map" element={<Map />} />
         <Route path="/search" element={<Search />}></Route>

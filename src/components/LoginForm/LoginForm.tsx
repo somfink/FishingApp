@@ -21,7 +21,7 @@ const LoginForm = () => {
         <FormButton>Log in</FormButton>
       </FormLogin>
       <LoginParagraph>
-        Don't have an account? <SignLink to="/sign-user">Sign In</SignLink>
+        Don't have an account? <SignLink to="/sign-user">Sign Up</SignLink>
       </LoginParagraph>
     </Modal>
   );

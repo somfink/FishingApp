@@ -10,4 +10,5 @@ export const ModalSection = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  border: none;
 `;
