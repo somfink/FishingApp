@@ -6,6 +6,7 @@ import {
   TbCircle4,
   TbCircle5,
 } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 export const LandingTitle = styled.section`
   width: 100%;
@@ -162,7 +163,7 @@ export const JoinSection = styled.section`
   justify-content: space-evenly;
   align-items: center;
   margin-top: -4rem;
-  padding: 4rem 0;
+  padding: 4.5rem 0;
 `;
 
 const buttonStyles = css`
@@ -173,6 +174,7 @@ const buttonStyles = css`
   background: transparent;
   transition: 0.3s;
   z-index: 10;
+  text-decoration: none;
 
   &:focus-visible {
     outline: none;
@@ -181,7 +183,7 @@ const buttonStyles = css`
   }
 `;
 
-export const SignBtn = styled.button`
+export const SignBtn = styled(Link)`
   ${buttonStyles}
 
   border: 2px solid #7fa1ce;
@@ -194,7 +196,7 @@ export const SignBtn = styled.button`
   }
 `;
 
-export const LoginBtn = styled.button`
+export const LoginBtn = styled(Link)`
   ${buttonStyles}
 
   border: 2px solid #d8d8d8;

@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import LoginForm from "../LoginForm/LoginForm";
 import Home from "../Pages/Home/Home";
 import LandingPage from "../Pages/LandingPage/LandingPage";
 import Map from "../Pages/Map/Map";
@@ -12,6 +13,8 @@ const Header = () => {
     <HeaderContainer>
       <Routes>
         <Route path="/" element={<LandingPage />} ></Route>
+        <Route path="/login-user" element={<LoginForm />} ></Route>
+        <Route path="/sign-user" element={<LoginForm />} ></Route>
         <Route path="/home" element={<Home />} />
         <Route path="/map" element={<Map />} />
         <Route path="/search" element={<Search />}></Route>

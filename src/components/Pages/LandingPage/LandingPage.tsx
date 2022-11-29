@@ -5,7 +5,7 @@ import {
   PrimaryTitle,
   SecondaryTitle,
 } from "../../../helpers/main.styles";
-import Modal from "../../UI/Modal";
+import Modal from "../../UI/Modal/Modal";
 import {
   LandingWelcome,
   LandingTitle,
@@ -34,10 +34,9 @@ const LandingPage = () => {
           </TitleIcon>
         </Handler>
         <Handler>
-          <LoginBtn>Log in</LoginBtn>
+          <LoginBtn to="/login-user">Log in</LoginBtn>
           <Slogan>The best app for anglers!</Slogan>
         </Handler>
-        {/* The best app for anglers! */}
       </LandingTitle>
       <LandingWelcome>
         <SecondaryTitle>Welcome in our App!</SecondaryTitle>
@@ -78,7 +77,7 @@ const LandingPage = () => {
           You can join us for free! If you don't have an account, click the
           register button
         </Paragraph>
-        <SignBtn>Sing in</SignBtn>
+        <SignBtn to="/sign-user">Sign in</SignBtn>
       </JoinSection>
     </Modal>
   );
