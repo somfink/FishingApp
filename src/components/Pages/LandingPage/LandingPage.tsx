@@ -1,10 +1,13 @@
 import { GiBoatFishing } from "react-icons/gi";
+import { useDispatch } from "react-redux";
 
 import {
+  IconSpan,
   Paragraph,
   PrimaryTitle,
   SecondaryTitle,
 } from "../../../helpers/main.styles";
+import { landingActions } from "../../../store/landing-page/landingPage.slice";
 import Modal from "../../UI/Modal/Modal";
 import {
   LandingWelcome,
@@ -21,9 +24,17 @@ import {
   JoinSection,
   SignBtn,
   LoginBtn,
+  ContinueBtn,
+  ContinueIcon,
 } from "./LandingPage.styles";
 
 const LandingPage = () => {
+  const dispatch = useDispatch();
+
+  const moveMainAppHandler = () => {
+    dispatch(landingActions.closeLanding());
+  };
+
   return (
     <Modal>
       <LandingTitle>
@@ -78,6 +89,13 @@ const LandingPage = () => {
           register button
         </Paragraph>
         <SignBtn to="/sign-user">Sign Up</SignBtn>
+        <Paragraph>or</Paragraph>
+        <ContinueBtn to="/home" onClick={moveMainAppHandler}>
+          Conitnue without login
+          <IconSpan>
+            <ContinueIcon />
+          </IconSpan>
+        </ContinueBtn>
       </JoinSection>
     </Modal>
   );

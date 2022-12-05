@@ -6,6 +6,7 @@ import {
   TbCircle4,
   TbCircle5,
 } from "react-icons/tb";
+import { CgArrowLongRight } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
 export const LandingTitle = styled.section`
@@ -157,7 +158,7 @@ export const UnderlineParagraph = styled.p`
 
 export const JoinSection = styled.section`
   width: 100%;
-  min-height: 30rem;
+  min-height: 35rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -188,6 +189,7 @@ export const SignBtn = styled(Link)`
 
   border: 2px solid #7fa1ce;
   color: #7fa1ce;
+  margin-bottom: 2rem;
 
   &:hover {
     cursor: pointer;
@@ -208,4 +210,32 @@ export const LoginBtn = styled(Link)`
     border: 2px solid #e2a9a9;
     color: #e2a9a9;
   }
+`;
+
+export const ContinueBtn = styled(Link)`
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  padding: 0.3rem 0;
+  background: transparent;
+  transition: 0.3s;
+  text-decoration: none;
+  border-bottom: 2px solid #7fa1ce;
+  color: #7fa1ce;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #e2a9a9;
+    color: #e2a9a9;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: 2px solid #d8d8d8;
+    color: #d8d8d8;
+  }
+`;
+
+export const ContinueIcon = styled(CgArrowLongRight)`
+  font-size: 2rem;
 `;

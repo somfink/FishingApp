@@ -33,3 +33,10 @@ export const Paragraph = styled.p`
   padding: 0 1.5rem;
   margin-bottom: 1rem;
 `;
+
+export const IconSpan = styled.span`
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

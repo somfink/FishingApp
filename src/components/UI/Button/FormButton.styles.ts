@@ -15,4 +15,8 @@ export const FormBtn = styled.button`
     &:focus-visible {
         outline: none;
     }
+
+    &:focus-visible {
+        border: 2px solid #e9f772;
+    }
 `;

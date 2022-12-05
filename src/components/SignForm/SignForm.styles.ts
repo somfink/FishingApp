@@ -33,3 +33,11 @@ export const FormSign = styled.form`
   background: #3d3d3d;
   box-shadow: 0px -5px 20px #3d3d3d;
 `;
+
+export const ErrorText = styled.p`
+  width: 80%;
+  color: #963434;
+  padding: .2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+`;
