@@ -15,10 +15,12 @@ const landingSlice = createSlice({
     closeLanding(state) {
       state.isLandingActive = false;
     },
+    showLanding(state) {
+      state.isLandingActive = true;
+    },
   },
 });
 
 export const landingActions = landingSlice.actions;
 
 export default landingSlice;
-

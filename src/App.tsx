@@ -4,11 +4,11 @@ import { rootState } from "./helpers/types";
 import { AppContainer } from "./App.styles";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "./helpers/firbase.config";
+import { fetchDataActions } from "./store/fetchData/fetchData.slice";
 
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.styles.ts";
-import { fetchDataActions } from "./store/fetchData/fetchData.slice";
 
 function App() {
   const { isLandingActive } = useSelector(
@@ -17,10 +17,6 @@ function App() {
 
   const dispatch = useDispatch();
   const dataCollectionRef = collection(db, "spots");
-
-  const fetchDataState = useSelector(
-    (state: rootState) => state.fetchData.markers
-  );
 
   useEffect(() => {
     onSnapshot(dataCollectionRef, (snapshot) => {

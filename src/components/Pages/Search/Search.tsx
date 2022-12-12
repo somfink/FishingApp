@@ -1,7 +1,12 @@
-import React from "react";
+import { SearchMapContainer } from "./Search.styles";
+import SearchMap from "./SearchMap/SearchMap";
 
 const Search = () => {
-  return <div>Search</div>;
+  return (
+    <SearchMapContainer>
+      <SearchMap />
+    </SearchMapContainer>
+  );
 };
 
 export default Search;

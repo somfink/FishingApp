@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import fetchDataSlice from "./fetchData/fetchData.slice";
 import landingSlice from "./landing-page/landingPage.slice";
+import userLoginStatusSlice from "./loginCheck/loginCheck.slice";
 import navSlice from "./nav/nav.slice";
 
 const store = configureStore({
@@ -8,6 +9,7 @@ const store = configureStore({
     nav: navSlice.reducer,
     landingPage: landingSlice.reducer,
     fetchData: fetchDataSlice.reducer,
+    loginStatus: userLoginStatusSlice.reducer,
   },
 });
 

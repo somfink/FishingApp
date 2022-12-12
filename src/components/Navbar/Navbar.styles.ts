@@ -3,8 +3,8 @@ import {
   HiUser,
   HiHome,
   HiMapPin,
-  HiOutlineMagnifyingGlass,
 } from "react-icons/hi2";
+import { IoFishSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
 // ANIMATIONS
@@ -108,7 +108,7 @@ export const MapIcon = styled(HiMapPin)`
   ${iconStyle}
 `;
 
-export const SearchIcon = styled(HiOutlineMagnifyingGlass)`
+export const AddSpotIcon = styled(IoFishSharp)`
   ${iconStyle}
 `;
 

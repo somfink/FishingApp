@@ -13,14 +13,14 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Routes>
-        <Route path="/" element={<LandingPage />} ></Route>
-        <Route path="/login-user" element={<LoginForm />} ></Route>
-        <Route path="/sign-user" element={<SignForm />} ></Route>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login-user" element={<LoginForm />} />
+        <Route path="/sign-user" element={<SignForm />} />
         <Route path="/home" element={<Home />} />
         <Route path="/map" element={<Map />} />
-        <Route path="/search" element={<Search />}></Route>
-        <Route path="/profile" element={<Profile />}></Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="/add-spot" element={<Search />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </HeaderContainer>
   );

@@ -1,5 +1,5 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { customMapStyles } from "./customMapStyles";
+import { mapOptions } from "./customMapStyles";
 import { containerMapStyle, MapContainer } from "./Map.styles";
 import Markers from "./Markers/Markers";
 
@@ -17,7 +17,7 @@ const Map = () => {
           mapContainerStyle={containerMapStyle}
           center={center}
           zoom={15}
-          options={{ styles: customMapStyles }}
+          options={mapOptions}
         >
           <Markers />
         </GoogleMap>

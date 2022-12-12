@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { GiBoatFishing } from "react-icons/gi";
 import { useDispatch } from "react-redux";
-
+import { useLocation } from "react-router-dom";
 import {
   IconSpan,
-  Paragraph,
+  ParagraphItalic,
   PrimaryTitle,
   SecondaryTitle,
 } from "../../../helpers/main.styles";
@@ -30,6 +31,13 @@ import {
 
 const LandingPage = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      dispatch(landingActions.showLanding());
+    }
+  }, []);
 
   const moveMainAppHandler = () => {
     dispatch(landingActions.closeLanding());
@@ -51,14 +59,14 @@ const LandingPage = () => {
       </LandingTitle>
       <LandingWelcome>
         <SecondaryTitle>Welcome in our App!</SecondaryTitle>
-        <Paragraph>
+        <ParagraphItalic>
           We are sure you will find many well-stocked places with fish here. You
           will no longer have to worry about not catching any fish!
-        </Paragraph>
-        <Paragraph>
+        </ParagraphItalic>
+        <ParagraphItalic>
           How You can use our App? It's trivial, below you will find a brief
           description of the functionality!
-        </Paragraph>
+        </ParagraphItalic>
       </LandingWelcome>
       <LandingDescription>
         <DescriptionContainer>
@@ -84,12 +92,12 @@ const LandingPage = () => {
       </LandingDescription>
       <JoinSection>
         <SecondaryTitle>Want to Join us?</SecondaryTitle>
-        <Paragraph>
+        <ParagraphItalic>
           You can join us for free! If you don't have an account, click the
           register button
-        </Paragraph>
+        </ParagraphItalic>
         <SignBtn to="/sign-user">Sign Up</SignBtn>
-        <Paragraph>or</Paragraph>
+        <ParagraphItalic>or</ParagraphItalic>
         <ContinueBtn to="/home" onClick={moveMainAppHandler}>
           Conitnue without login
           <IconSpan>

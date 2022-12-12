@@ -1,4 +1,5 @@
 import { landingState } from "../store/landing-page/landingPage.slice";
+import { loginState } from "../store/loginCheck/loginCheck.slice";
 import { navState } from "../store/nav/nav.slice";
 
 export type Cords = {
@@ -7,12 +8,13 @@ export type Cords = {
   id?: string;
 };
 
-export type FetchState = {
+export type fetchState = {
   markers: Cords[];
 };
 
 export type rootState = {
   nav: navState;
   landingPage: landingState;
-  fetchData: FetchState;
+  fetchData: fetchState;
+  loginStatus: loginState;
 };

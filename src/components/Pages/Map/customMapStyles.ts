@@ -1,4 +1,4 @@
-export const customMapStyles = [
+const customMapStyles = [
   {
     featureType: "all",
     elementType: "labels.text.fill",
@@ -366,3 +366,20 @@ export const customMapStyles = [
     ],
   },
 ];
+
+export const mapOptions = {
+  styles: customMapStyles,
+  streetViewControl: false,
+  zoomControl: false,
+  fullscreenControl: false,
+  minZoom: 5,
+  maxZoom: 90,
+  restriction: {
+    latLngBounds: {
+      north: 85,
+      south: -85,
+      west: -180,
+      east: 180,
+    },
+  },
+};
