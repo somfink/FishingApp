@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export type NavState = {
+export type navState = {
   homeIsActive: boolean;
   mapIsActive: boolean;
   searchIsActive: boolean;
   userIsActive: boolean;
 };
 
-const initialState: NavState = {
+const initialState: navState = {
   homeIsActive: true,
   mapIsActive: false,
   searchIsActive: false,

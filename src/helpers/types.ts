@@ -1,7 +1,20 @@
-import { NavState } from "../store/nav/nav.slice";
+import { landingState } from "../store/landing-page/landingPage.slice";
+import { loginState } from "../store/loginCheck/loginCheck.slice";
+import { navState } from "../store/nav/nav.slice";
 
-
-export type rootState = {
-    nav: NavState;
+export type Cords = {
+  lat?: number;
+  lng?: number;
+  id?: string;
 };
 
+export type fetchState = {
+  markers: Cords[];
+};
+
+export type rootState = {
+  nav: navState;
+  landingPage: landingState;
+  fetchData: fetchState;
+  loginStatus: loginState;
+};

@@ -2,19 +2,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { rootState } from "../../helpers/types";
 import { navActions } from "../../store/nav/nav.slice";
 import {
+  AddSpotIcon,
   HomeIcon,
   MapIcon,
   NavContainer,
   NavItems,
   NavList,
-  SearchIcon,
+  StyledNavLink,
   UserIcon,
 } from "./Navbar.styles";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const nav = useSelector((state: rootState) => state.nav);
-  const { homeIsActive, mapIsActive, searchIsActive, userIsActive } = nav;
+  const { homeIsActive, mapIsActive, searchIsActive, userIsActive } =
+    useSelector((state: rootState) => state.nav);
 
   const goHomeHandler = () => {
     dispatch(navActions.goHome());
@@ -35,21 +36,29 @@ const Navbar = () => {
   return (
     <NavContainer>
       <NavList>
-        <NavItems active={homeIsActive} onClick={goHomeHandler}>
-          <HomeIcon active={homeIsActive} />
-          <span>Home</span>
+        <NavItems onClick={goHomeHandler}>
+          <StyledNavLink $active={homeIsActive} to="/home">
+            <HomeIcon />
+            <span>Home</span>
+          </StyledNavLink>
         </NavItems>
-        <NavItems active={mapIsActive} onClick={goMapHandler}>
-          <MapIcon active={mapIsActive} />
-          <span>Map</span>
+        <NavItems onClick={goMapHandler}>
+          <StyledNavLink $active={mapIsActive} to="/map">
+            <MapIcon />
+            <span>Spots</span>
+          </StyledNavLink>
         </NavItems>
-        <NavItems active={searchIsActive} onClick={goSearchHandler}>
-          <SearchIcon active={searchIsActive} />
-          <span>Search</span>
+        <NavItems onClick={goSearchHandler}>
+          <StyledNavLink $active={searchIsActive} to="/add-spot">
+            <AddSpotIcon />
+            <span>Add</span>
+          </StyledNavLink>
         </NavItems>
-        <NavItems active={userIsActive} onClick={goUserHandler}>
-          <UserIcon active={userIsActive} />
-          <span>Profile</span>
+        <NavItems onClick={goUserHandler}>
+          <StyledNavLink $active={userIsActive} to="/profile">
+            <UserIcon />
+            <span>Profile</span>
+          </StyledNavLink>
         </NavItems>
       </NavList>
     </NavContainer>
