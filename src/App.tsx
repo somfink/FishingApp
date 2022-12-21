@@ -9,6 +9,8 @@ import { fetchDataActions } from "./store/fetchData/fetchData.slice";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.styles.ts";
+import { landingActions } from "./store/landing-page/landingPage.slice";
+import { useLocation } from "react-router";
 
 function App() {
   const { isLandingActive } = useSelector(
@@ -16,6 +18,7 @@ function App() {
   );
 
   const dispatch = useDispatch();
+  const location = useLocation();
   const dataCollectionRef = collection(db, "spots");
 
   useEffect(() => {
@@ -31,6 +34,19 @@ function App() {
       );
       dispatch(fetchDataActions.fetchStart(fetchGeo));
     });
+  }, []);
+
+  const isNavNotShow =
+    location.pathname === "/" ||
+    location.pathname === "/login-user" ||
+    location.pathname === "/sign-user";
+
+  useEffect(() => {
+    if (isNavNotShow) {
+      dispatch(landingActions.showLanding());
+    } else {
+      dispatch(landingActions.closeLanding());
+    }
   }, []);
 
   return (

@@ -10,8 +10,20 @@ import {
   SettingsIcon,
   TrophyIcon,
 } from "./ProfileMenu.styles";
+import { ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authUserActions } from "../../../../store/authUser/authUser.slice";
+import { rootState } from "../../../../helpers/types";
 
 const ProfileMenu = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state: rootState) => state.authUser);
+
+  const userLogoutHandler = () => {
+    dispatch(authUserActions.logout());
+    console.log(user);
+  };
+
   return (
     <ProfileOptions>
       <ProfileList>
@@ -33,7 +45,7 @@ const ProfileMenu = () => {
         </ProfileLi>
       </ProfileList>
       <LogoutContainer>
-        <LogoutHandler>
+        <LogoutHandler onClick={userLogoutHandler}>
           <LogoutIcon />
           Logout
         </LogoutHandler>

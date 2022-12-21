@@ -11,6 +11,8 @@ export const FormBtn = styled.button`
     font-weight: 600;
     box-shadow: 2px 2px 25px #1a1919;
     margin-bottom: 2rem;
+    transition: all 0.2s ease-in;
+    
 
     &:focus-visible {
         outline: none;
@@ -18,5 +20,17 @@ export const FormBtn = styled.button`
 
     &:focus-visible {
         border: 2px solid #e9f772;
+    }
+
+    &:hover {
+        background: #bbbbbb;
+        cursor: pointer;
+        color: #1a1919;
+    }
+
+    &:disabled {
+        cursor: default;
+        background: #e4e3e3;
+        color: #9c9c9c;
     }
 `;

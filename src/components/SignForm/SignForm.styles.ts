@@ -38,6 +38,6 @@ export const ErrorText = styled.p`
   width: 80%;
   color: #963434;
   padding: .2rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
 `;

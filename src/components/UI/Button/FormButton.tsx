@@ -3,12 +3,13 @@ import { FormBtn } from "./FormButton.styles";
 
 type Props = {
   children: ReactNode;
+  isValid?: boolean;
 };
 
-const FormButton: FC<Props> = ({ children }) => {
+const FormButton: FC<Props> = ({ children, isValid }) => {
   return (
     <>
-      <FormBtn>{children}</FormBtn>
+      <FormBtn disabled={!isValid}>{children}</FormBtn>
     </>
   );
 };
