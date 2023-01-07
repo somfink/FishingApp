@@ -1,32 +1,44 @@
 import { ChangeEvent, useState } from "react";
-import { useDispatch } from "react-redux";
-import { authUserActions } from "../../store/authUser/authUser.slice";
-import {
-  ErrorText,
-  FormSign,
-  MainSignContainer,
-  SignBackground,
-  SignTitle,
-} from "./SignForm.styles";
+import { useSelector } from "react-redux";
+import { rootState } from "../../helpers/types";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 import { auth, storage, db } from "../../helpers/firbase.config";
-import { toast } from "react-toastify";
+import { FirebaseApp } from "firebase/app";
+import { useNavigate } from "react-router-dom";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  Spinner,
+} from "@chakra-ui/react";
+import {
+  ErrorContainer,
+  ErrorText,
+  FormSign,
+  FormSignContainer,
+  MainSignContainer,
+  SignBackground,
+  SignTitle,
+} from "./SignForm.styles";
 import FormButton from "../UI/Button/FormButton";
 import Input from "../UI/Input/Input";
 import Modal from "../UI/Modal/Modal";
 import useInput from "../../hooks/use-input";
-import { FirebaseApp } from "firebase/app";
-import { useNavigate } from "react-router-dom";
+import Notification from "../UI/Notification/Notification";
 
 const emailRegExp = new RegExp(
   "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
 );
 
 const SignForm = () => {
-  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const { isAccountCreated } = useSelector(
+    (state: rootState) => state.createAccount
+  );
+
   const navigate = useNavigate();
 
   const {
@@ -88,11 +100,10 @@ const SignForm = () => {
         });
         await console.log(user);
         setLoading(false);
-        toast.success("Your registration was successful!");
-        navigate("/login-user");
+        await navigate("/login-user");
       } catch (error) {
         setLoading(false);
-        toast.error("something went wrong");
+        // toast.error("something went wrong");
       }
     }
 
@@ -109,39 +120,84 @@ const SignForm = () => {
 
   return (
     <Modal>
+      <Notification>
+        {isAccountCreated && (
+          <Alert
+            status="success"
+            variant="subtle"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+            height="200px"
+            position={"absolute"}
+            zIndex={20}
+          >
+            <AlertIcon boxSize="40px" mr={0} />
+            <AlertTitle mt={4} mb={1} fontSize="lg">
+              Account created!
+            </AlertTitle>
+            <AlertDescription maxWidth="sm">
+              Thanks for creating account in FisshingApp! Now you can use all
+              the features of our app.
+            </AlertDescription>
+          </Alert>
+        )}
+      </Notification>
       <MainSignContainer>
-        <SignBackground />
         <SignTitle>Create Account</SignTitle>
+        <SignBackground />
       </MainSignContainer>
-      <FormSign onSubmit={signup}>
-        <Input
-          type="text"
-          placeholder="Login"
-          onChange={loginChangeHandler}
-          onBlur={loginBlurHandler}
-          hasError={loginHasError}
-        />
-        <Input
-          type="email"
-          placeholder="Email"
-          onChange={emailChangeHandler}
-          onBlur={emailBlurHandler}
-          hasError={emailHasError}
-        />
-        <Input
-          type="password"
-          placeholder="Password"
-          onChange={passwordChangeHandler}
-          hasError={passwordHasError}
-          onBlur={passwordBlurHandler}
-        />
-        <FormButton isValid={formIsValid}>Sign Up</FormButton>
-      </FormSign>
-      {loginHasError && <ErrorText>Login must not be empty!</ErrorText>}
-      {emailHasError && <ErrorText>Please enter correct email!</ErrorText>}
-      {passwordHasError && (
-        <ErrorText>Password length should be min 8 characters!</ErrorText>
-      )}
+      <FormSignContainer>
+        {!loading && (
+          <>
+            <FormSign onSubmit={signup}>
+              <Input
+                type="text"
+                placeholder="Login"
+                onChange={loginChangeHandler}
+                onBlur={loginBlurHandler}
+                hasError={loginHasError}
+              />
+              <Input
+                type="email"
+                placeholder="Email"
+                onChange={emailChangeHandler}
+                onBlur={emailBlurHandler}
+                hasError={emailHasError}
+              />
+              <Input
+                type="password"
+                placeholder="Password"
+                onChange={passwordChangeHandler}
+                hasError={passwordHasError}
+                onBlur={passwordBlurHandler}
+              />
+              <FormButton isValid={formIsValid}>Sign Up</FormButton>
+            </FormSign>
+            <ErrorContainer>
+              {loginHasError && <ErrorText>Login must not be empty!</ErrorText>}
+              {emailHasError && (
+                <ErrorText>Please enter correct email!</ErrorText>
+              )}
+              {passwordHasError && (
+                <ErrorText>
+                  Password length should be min 8 characters!
+                </ErrorText>
+              )}
+            </ErrorContainer>{" "}
+          </>
+        )}
+        {loading && (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
+        )}
+      </FormSignContainer>
     </Modal>
   );
 };

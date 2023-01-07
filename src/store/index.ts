@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authUserSlice from "./authUser/authUser.slice";
+import createdAccountSlice from "./createdAccount/createdAccount.slice";
 import fetchDataSlice from "./fetchData/fetchData.slice";
 import landingSlice from "./landing-page/landingPage.slice";
 import userLoginStatusSlice from "./loginCheck/loginCheck.slice";
@@ -12,6 +13,7 @@ const store = configureStore({
     fetchData: fetchDataSlice.reducer,
     loginStatus: userLoginStatusSlice.reducer,
     authUser: authUserSlice.reducer,
+    createAccount: createdAccountSlice.reducer
   },
 });
 

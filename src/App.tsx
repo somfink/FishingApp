@@ -5,7 +5,6 @@ import { AppContainer } from "./App.styles";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "./helpers/firbase.config";
 import { fetchDataActions } from "./store/fetchData/fetchData.slice";
-
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.styles.ts";
@@ -52,6 +51,28 @@ function App() {
   return (
     <AppContainer>
       <Header />
+      {/* {isAccountCreated && (
+        <Alert
+          status="success"
+          variant="subtle"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          textAlign="center"
+          height="200px"
+          position={"absolute"}
+          zIndex={20}
+        >
+          <AlertIcon boxSize="40px" mr={0} />
+          <AlertTitle mt={4} mb={1} fontSize="lg">
+            Account created!
+          </AlertTitle>
+          <AlertDescription maxWidth="sm">
+            Thanks for creating account in FisshingApp! Now you can use all the
+            features of our app.
+          </AlertDescription>
+        </Alert>
+      )} */}
       {!isLandingActive && <Navbar />}
     </AppContainer>
   );
