@@ -1,19 +1,11 @@
 import { ChangeEvent, useState } from "react";
-import { useSelector } from "react-redux";
-import { rootState } from "../../helpers/types";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
 import { auth, storage, db } from "../../helpers/firbase.config";
 import { FirebaseApp } from "firebase/app";
 import { useNavigate } from "react-router-dom";
-import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  Spinner,
-} from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
 import {
   ErrorContainer,
   ErrorText,
@@ -27,7 +19,9 @@ import FormButton from "../UI/Button/FormButton";
 import Input from "../UI/Input/Input";
 import Modal from "../UI/Modal/Modal";
 import useInput from "../../hooks/use-input";
-import Notification from "../UI/Notification/Notification";
+import { useDispatch } from "react-redux";
+import { createdAccountActions } from "../../store/createdAccount/createdAccount.slice";
+
 
 const emailRegExp = new RegExp(
   "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
@@ -35,11 +29,23 @@ const emailRegExp = new RegExp(
 
 const SignForm = () => {
   const [loading, setLoading] = useState(false);
-  const { isAccountCreated } = useSelector(
-    (state: rootState) => state.createAccount
-  );
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const setCreatedAccount = () => {
+    dispatch(createdAccountActions.createAccount());
+    setTimeout(() => {
+      dispatch(createdAccountActions.createAccount());
+    }, 1500);
+  };
+
+  const setErrorWhenCreatedAccount = () => {
+    dispatch(createdAccountActions.errorWhenCreateAccount());
+    setTimeout(() => {
+      dispatch(createdAccountActions.errorWhenCreateAccount());
+    }, 1500);
+  };
 
   const {
     value: enteredLogin,
@@ -100,10 +106,11 @@ const SignForm = () => {
         });
         await console.log(user);
         setLoading(false);
+        await setCreatedAccount();
         await navigate("/login-user");
       } catch (error) {
         setLoading(false);
-        // toast.error("something went wrong");
+        setErrorWhenCreatedAccount();
       }
     }
 
@@ -120,30 +127,6 @@ const SignForm = () => {
 
   return (
     <Modal>
-      <Notification>
-        {isAccountCreated && (
-          <Alert
-            status="success"
-            variant="subtle"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-            height="200px"
-            position={"absolute"}
-            zIndex={20}
-          >
-            <AlertIcon boxSize="40px" mr={0} />
-            <AlertTitle mt={4} mb={1} fontSize="lg">
-              Account created!
-            </AlertTitle>
-            <AlertDescription maxWidth="sm">
-              Thanks for creating account in FisshingApp! Now you can use all
-              the features of our app.
-            </AlertDescription>
-          </Alert>
-        )}
-      </Notification>
       <MainSignContainer>
         <SignTitle>Create Account</SignTitle>
         <SignBackground />

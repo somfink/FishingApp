@@ -5,5 +5,7 @@ export const NotificationContainer = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
+  z-index: 100;
+  position: fixed;
 `;

@@ -2,7 +2,6 @@ import { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { NotificationContainer } from "./Notification.styles";
 
-
 type Props = {
   children: ReactNode;
 };
