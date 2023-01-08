@@ -1,9 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { setDoc, doc } from "firebase/firestore";
-import { auth, storage, db } from "../../helpers/firbase.config";
-import { FirebaseApp } from "firebase/app";
+import { auth, db } from "../../helpers/firbase.config";
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "@chakra-ui/react";
 import {
@@ -110,7 +108,7 @@ const SignForm = () => {
         await navigate("/login-user");
       } catch (error) {
         setLoading(false);
-        setErrorWhenCreatedAccount();
+        await setErrorWhenCreatedAccount();
       }
     }
 

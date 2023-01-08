@@ -48,7 +48,7 @@ function App() {
     } else {
       dispatch(landingActions.closeLanding());
     }
-  }, []);
+  }, [location.pathname]);
 
   return (
     <AppContainer>

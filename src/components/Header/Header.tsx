@@ -1,5 +1,14 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
+import { rootState } from "../../helpers/types";
+import { useSelector } from "react-redux";
+import { HeaderContainer } from "./Header.styles";
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+} from "@chakra-ui/react";
 import LoginForm from "../LoginForm/LoginForm";
 import Home from "../Pages/Home/Home";
 import LandingPage from "../Pages/LandingPage/LandingPage";
@@ -8,30 +17,12 @@ import NotFound from "../Pages/NotFound/NotFound";
 import Profile from "../Pages/Profile/Profile";
 import Search from "../Pages/Search/Search";
 import SignForm from "../SignForm/SignForm";
-import { HeaderContainer } from "./Header.styles";
-import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-} from "@chakra-ui/react";
 import Notification from "../../components/UI/Notification/Notification";
-import { rootState } from "../../helpers/types";
-import { useDispatch, useSelector } from "react-redux";
-import { createdAccountActions } from "../../store/createdAccount/createdAccount.slice";
 
 const Header = () => {
   const { isAccountCreated, isErrorOccured } = useSelector(
     (state: rootState) => state.createAccount
   );
-
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (isAccountCreated) {
-  //     dispatch(createdAccountActions.createAccount());
-  //   }
-  // }, [isAccountCreated]);
 
   return (
     <HeaderContainer>

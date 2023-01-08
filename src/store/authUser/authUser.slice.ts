@@ -5,11 +5,17 @@ export type UserAuth = {
     email?: string;
     userName?: string;
     uid?: string;
+    photoURL?: string;
   };
 };
 
 const initialState = {
-  currentUser: { email: null, userName: null, uid: null },
+  currentUser: {
+    email: null,
+    userName: null,
+    uid: null,
+    photoURL: null,
+  },
 };
 
 const authUserSlice = createSlice({
@@ -17,10 +23,12 @@ const authUserSlice = createSlice({
   initialState,
   reducers: {
     login(state, action) {
+      const { email, userName, uid, photoURL } = action.payload;
       state.currentUser = {
-        email: action.payload.email,
-        userName: action.payload.userName,
-        uid: action.payload.uid,
+        email,
+        userName,
+        uid,
+        photoURL,
       };
     },
     logout(state) {
@@ -28,6 +36,7 @@ const authUserSlice = createSlice({
         email: null,
         userName: null,
         uid: null,
+        photoURL: null,
       };
     },
   },

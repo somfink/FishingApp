@@ -8,7 +8,7 @@ export type AccountCreated = {
 
 const initialState = {
   isAccountCreated: false,
-  isErrorOccured: true,
+  isErrorOccured: false,
 };
 
 const createdAccountSlice = createSlice({
