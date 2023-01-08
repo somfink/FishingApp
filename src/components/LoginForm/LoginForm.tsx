@@ -25,7 +25,6 @@ const emailRegExp = new RegExp(
 
 const LoginForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const user = useSelector((state: rootState) => state.authUser);
 
   const navigate = useNavigate();
   const toast = useToast({

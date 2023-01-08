@@ -10,18 +10,37 @@ import {
   SettingsIcon,
   TrophyIcon,
 } from "./ProfileMenu.styles";
-import { ChangeEvent } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { authUserActions } from "../../../../store/authUser/authUser.slice";
-import { rootState } from "../../../../helpers/types";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../../helpers/firbase.config";
+import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const ProfileMenu = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state: rootState) => state.authUser);
+  const navigate = useNavigate();
+
+  const toast = useToast({
+    position: "top",
+    isClosable: true,
+    containerStyle: {
+      width: "90%",
+    },
+  });
 
   const userLogoutHandler = () => {
-    dispatch(authUserActions.logout());
-    console.log(user);
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+        toast({
+          title: "Logged out",
+          status: "success",
+        });
+      })
+      .catch((err) => {
+        toast({
+          title: err.message,
+          status: "error",
+        });
+      });
   };
 
   return (

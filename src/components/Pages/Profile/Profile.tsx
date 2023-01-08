@@ -28,8 +28,7 @@ const Profile = () => {
           </HelperContainerCenter>
           <HelperContainerCenter>
             <ProfileParagraph>
-              Spots: 15 <Span>|</Span> User:{" "}
-              {"somfink"}
+              Spots: 15 <Span>|</Span> User:{currentUser ? ` ${currentUser?.displayName}` : ''}
             </ProfileParagraph>
           </HelperContainerCenter>
         </ProfileInfo>

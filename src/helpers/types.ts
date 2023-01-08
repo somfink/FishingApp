@@ -1,4 +1,3 @@
-import { UserAuth } from "../store/authUser/authUser.slice";
 import { AccountCreated } from "../store/createdAccount/createdAccount.slice";
 import { landingState } from "../store/landing-page/landingPage.slice";
 import { loginState } from "../store/loginCheck/loginCheck.slice";
@@ -19,6 +18,5 @@ export type rootState = {
   landingPage: landingState;
   fetchData: fetchState;
   loginStatus: loginState;
-  authUser: UserAuth;
   createAccount: AccountCreated;
 };

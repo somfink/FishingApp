@@ -28,11 +28,11 @@ const ProtectedRoute: FC<Props> = ({ children }) => {
         below buttons to login or sign up
       </LoginParagraph>
       <GoToLoginBtn onClick={() => navigateHandler("/login-user")}>
-        Login page
+        Login
       </GoToLoginBtn>
       <LoginParagraph textAlign={"center"}>or</LoginParagraph>
       <GoToLoginBtn onClick={() => navigateHandler("/sign-user")}>
-        Sign up
+        Signup
       </GoToLoginBtn>
     </LoginProvider>
   );

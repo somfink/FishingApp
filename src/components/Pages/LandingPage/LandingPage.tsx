@@ -1,5 +1,5 @@
 import { GiBoatFishing } from "react-icons/gi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   IconSpan,
   ParagraphItalic,
@@ -26,15 +26,12 @@ import {
   ContinueIcon,
 } from "./LandingPage.styles";
 import Modal from "../../UI/Modal/Modal";
-import { rootState } from "../../../helpers/types";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state: rootState) => state.authUser);
 
   const moveMainAppHandler = () => {
     dispatch(landingActions.closeLanding());
-    console.log(user);
   };
 
   return (
