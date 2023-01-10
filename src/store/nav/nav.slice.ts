@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export type navState = {
   homeIsActive: boolean;
   mapIsActive: boolean;
-  searchIsActive: boolean;
+  addIsActive: boolean;
   userIsActive: boolean;
 };
 
 const initialState: navState = {
-  homeIsActive: true,
+  homeIsActive: false,
   mapIsActive: false,
-  searchIsActive: false,
+  addIsActive: false,
   userIsActive: false,
 };
 
@@ -21,25 +21,25 @@ export const navSlice = createSlice({
     goHome(state) {
       state.homeIsActive = true;
       state.mapIsActive = false;
-      state.searchIsActive = false;
+      state.addIsActive = false;
       state.userIsActive = false;
     },
     goMap(state) {
       state.homeIsActive = false;
       state.mapIsActive = true;
-      state.searchIsActive = false;
+      state.addIsActive = false;
       state.userIsActive = false;
     },
-    goSearch(state) {
+    goAdd(state) {
       state.homeIsActive = false;
       state.mapIsActive = false;
-      state.searchIsActive = true;
+      state.addIsActive = true;
       state.userIsActive = false;
     },
     goUser(state) {
       state.homeIsActive = false;
       state.mapIsActive = false;
-      state.searchIsActive = false;
+      state.addIsActive = false;
       state.userIsActive = true;
     },
   },

@@ -61,7 +61,7 @@ export const LandingWelcome = styled.section`
 export const LandingDescription = styled.section`
   width: 100%;
   position: relative;
-  min-height: 58rem;
+  min-height: 62rem;
   clip-path: polygon(0 7%, 100% 0%, 100% 93%, 0% 100%);
   background-image: url(./images/LandingDesc.jpg);
   background-size: cover;
@@ -75,7 +75,7 @@ export const LandingDescription = styled.section`
     content: "";
     display: block;
     width: 100%;
-    min-height: 58rem;
+    min-height: 62rem;
     position: absolute;
     background: #00000075;
   }

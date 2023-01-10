@@ -1,13 +1,14 @@
+import { FC, ReactNode } from "react";
 import ReactDOM from "react-dom";
 import { ModalSection } from "./Modal.styles";
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const portalDiv = document.getElementById("modal") as HTMLElement;
 
-const Modal: React.FC<Props> = ({ children }) => {
+const Modal: FC<Props> = ({ children }) => {
   return (
     <>
       {ReactDOM.createPortal(
