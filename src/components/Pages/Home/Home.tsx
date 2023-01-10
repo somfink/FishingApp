@@ -1,12 +1,21 @@
-import React from "react";
-import { HomeContainer, HomeHeader, HomeHeading } from "./Home.styles";
+import {
+  HomeContainer,
+  HomeHeader,
+  HomeHeaderSpace,
+  HomeHeading,
+} from "./Home.styles";
+import HomeNews from "./HomeNews/HomeNews";
 
 const Home = () => {
-  return <HomeContainer>
-    <HomeHeader>
-      <HomeHeading>Fishing News</HomeHeading>
-    </HomeHeader>
-  </HomeContainer>;
+  return (
+    <HomeContainer>
+      <HomeHeader>
+        <HomeHeading>Fishing News</HomeHeading>
+      </HomeHeader>
+      <HomeHeaderSpace />
+      <HomeNews />
+    </HomeContainer>
+  );
 };
 
 export default Home;

@@ -24,7 +24,7 @@ const ProtectedRoute: FC<Props> = ({ children }) => {
   ) : (
     <LoginProvider>
       <LoginParagraph>
-        If you are not logged user you can't see profile section. Click one of
+        If you are not logged user you can't use all app features. Click one of
         below buttons to login or sign up
       </LoginParagraph>
       <GoToLoginBtn onClick={() => navigateHandler("/login-user")}>

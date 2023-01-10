@@ -1,5 +1,4 @@
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
-import { type } from "@testing-library/user-event/dist/types/setup/directApi";
 import { useState } from "react";
 import { mapOptions } from "../../Map/customMapStyles";
 import { containerMapStyle, MapContainer } from "../../Map/Map.styles";
@@ -11,7 +10,7 @@ type coordinateTypes = {
   lng?: number;
 };
 
-const SearchMap = () => {
+const AddSpotMap = () => {
   const latLngInitState = { lat: undefined, lng: undefined };
   const [latLng, setLatLng] = useState<coordinateTypes>(latLngInitState);
 
@@ -23,9 +22,6 @@ const SearchMap = () => {
     const latCord = e.latLng?.lat();
     const lngCord = e.latLng?.lng();
     setLatLng({ lat: latCord, lng: lngCord });
-
-    // console.log(latLng);
-    // console.log(center);
   };
 
   const isLatLngExist =
@@ -48,4 +44,4 @@ const SearchMap = () => {
   );
 };
 
-export default SearchMap;
+export default AddSpotMap;
