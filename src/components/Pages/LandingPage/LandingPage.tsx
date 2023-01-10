@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { GiBoatFishing } from "react-icons/gi";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
 import {
   IconSpan,
   ParagraphItalic,
@@ -9,7 +7,6 @@ import {
   SecondaryTitle,
 } from "../../../helpers/main.styles";
 import { landingActions } from "../../../store/landing-page/landingPage.slice";
-import Modal from "../../UI/Modal/Modal";
 import {
   LandingWelcome,
   LandingTitle,
@@ -28,16 +25,10 @@ import {
   ContinueBtn,
   ContinueIcon,
 } from "./LandingPage.styles";
+import Modal from "../../UI/Modal/Modal";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.pathname === "/") {
-      dispatch(landingActions.showLanding());
-    }
-  }, []);
 
   const moveMainAppHandler = () => {
     dispatch(landingActions.closeLanding());

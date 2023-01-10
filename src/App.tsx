@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createdAccountActions } from "./store/createdAccount/createdAccount.slice";
+import { landingActions } from "./store/landing-page/landingPage.slice";
 import { rootState } from "./helpers/types";
-import { AppContainer } from "./App.styles";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "./helpers/firbase.config";
 import { fetchDataActions } from "./store/fetchData/fetchData.slice";
+import { useLocation } from "react-router";
+
+import { AppContainer } from "./App.styles";
 
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import "./App.styles.ts";
 
 function App() {
   const { isLandingActive } = useSelector(
@@ -16,6 +19,7 @@ function App() {
   );
 
   const dispatch = useDispatch();
+  const location = useLocation();
   const dataCollectionRef = collection(db, "spots");
 
   useEffect(() => {
@@ -32,6 +36,19 @@ function App() {
       dispatch(fetchDataActions.fetchStart(fetchGeo));
     });
   }, []);
+
+  const isNavNotShow =
+    location.pathname === "/" ||
+    location.pathname === "/login-user" ||
+    location.pathname === "/sign-user";
+
+  useEffect(() => {
+    if (isNavNotShow) {
+      dispatch(landingActions.showLanding());
+    } else {
+      dispatch(landingActions.closeLanding());
+    }
+  }, [location.pathname]);
 
   return (
     <AppContainer>

@@ -44,7 +44,6 @@ export const LoginParagraph = styled.p`
   color: #d8d8d8a1;
   font-size: 0.9rem;
   letter-spacing: 1px;
-  
 `;
 
 export const SignLink = styled(Link)`
@@ -54,4 +53,13 @@ export const SignLink = styled(Link)`
   text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 1px;
+`;
+
+export const LoginInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 8rem;
 `;
