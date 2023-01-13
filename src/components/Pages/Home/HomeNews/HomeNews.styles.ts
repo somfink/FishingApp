@@ -10,11 +10,12 @@ export const HomeNewsContainer = styled.section`
   background: #f3f3f3;
   padding: 1rem;
   margin-bottom: 2rem;
-  border-radius: 20px;
+  border-radius: 15px;
 
   &:nth-child(3) {
     padding-top: 8rem;
     margin-top: -6rem;
+    border-radius: 0px 0px 15px 15px;
   }
   
   &:last-child {

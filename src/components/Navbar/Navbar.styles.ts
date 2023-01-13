@@ -48,7 +48,6 @@ export const NavContainer = styled.nav`
   height: 5rem;
   background-color: #3d3d3d;
   border-radius: 25px 25px 0 0;
-  border: 2px solid #1f1e1e;
   background: #1f1e1e;
   position: fixed;
   left: 0px;
