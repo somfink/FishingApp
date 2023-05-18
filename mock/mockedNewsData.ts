@@ -28,7 +28,7 @@ export const MOCKED_NEWS_DATA = [
         location: 'Location',
         likes: 0,
         comments: 0,
-    },
+    }
 ];
 
 const mockedData = () => {

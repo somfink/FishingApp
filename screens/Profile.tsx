@@ -7,51 +7,51 @@ import { OptionList } from '~/components/Profile/OptionList';
 export const Profile = () => {
     const [isEnabled, setIsEnabled] = useState(false);
 
-    const toggleSwitch = () => setIsEnabled(prevState => !prevState);
+    const toggleSwitch = () => { setIsEnabled(prevState => !prevState); };
 
     return (
-        <View style={styles.container}>
-            <View style={styles.userContainer}>
-                <View style={styles.headerContainer}>
-                    <View style={styles.imageContainer}>
+        <View style={ styles.container }>
+            <View style={ styles.userContainer }>
+                <View style={ styles.headerContainer }>
+                    <View style={ styles.imageContainer }>
                         <Image
-                            source={require('~/assets/images/user-image.jpg')}
-                            style={styles.image}
+                            source={ require('~/assets/images/user-image.jpg') }
+                            style={ styles.image }
                         />
                     </View>
-                    <View style={styles.userInfoContainer}>
-                        <Text style={styles.username}>Username</Text>
-                        <Text style={styles.email}>email</Text>
+                    <View style={ styles.userInfoContainer }>
+                        <Text style={ styles.username }>Username</Text>
+                        <Text style={ styles.email }>email</Text>
                     </View>
                 </View>
-                <View style={styles.infoContainer}>
-                    <View style={styles.info}>
-                        <Text style={styles.infoHeading}>Placed Spots:</Text>
-                        <Text style={styles.infoText}>50</Text>
+                <View style={ styles.infoContainer }>
+                    <View style={ styles.info }>
+                        <Text style={ styles.infoHeading }>Placed Spots:</Text>
+                        <Text style={ styles.infoText }>50</Text>
                     </View>
-                    <View style={styles.info}>
-                        <Text style={styles.infoHeading}>Ranking:</Text>
-                        <Text style={styles.infoText}>#30</Text>
+                    <View style={ styles.info }>
+                        <Text style={ styles.infoHeading }>Ranking:</Text>
+                        <Text style={ styles.infoText }>#30</Text>
                     </View>
                 </View>
-                <View style={styles.themePicker}>
-                    <View style={styles.themeSwitch}>
+                <View style={ styles.themePicker }>
+                    <View style={ styles.themeSwitch }>
                         <Switch
-                            trackColor={{ false: '#767577', true: '#81b0ff' }}
-                            thumbColor={isEnabled ? '#525252' : '#f4f3f4'}
+                            trackColor={ { false: '#767577', true: '#81b0ff' } }
+                            thumbColor={ isEnabled ? '#525252' : '#f4f3f4' }
                             ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch}
-                            value={isEnabled}
+                            onValueChange={ toggleSwitch }
+                            value={ isEnabled }
                         />
                         <MaterialCommunityIcons
                             name="theme-light-dark"
-                            size={24}
-                            color={Colors.primaryFontColorDark}
+                            size={ 24 }
+                            color={ Colors.primaryFontColorDark }
                         />
                     </View>
                 </View>
             </View>
-            <View style={styles.userOptions}>
+            <View style={ styles.userOptions }>
                 <OptionList />
             </View>
         </View>

@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet } from 'react-native';
 
-export type NewsItemData = {
+export interface NewsItemData {
     title: string;
     image: string;
     user: string;
@@ -9,7 +9,7 @@ export type NewsItemData = {
     location: string;
     likes: number;
     comments: number;
-};
+}
 
 // export const NewsList = () => {
 //     return (

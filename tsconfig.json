@@ -21,5 +21,10 @@
             "~tests/*": ["./tests/*"],
         }
     },
+    "include": [
+        "./**/*",
+        "./*",
+        ".eslintrc.js"
+      ],
     "extends": "expo/tsconfig.base"
 }

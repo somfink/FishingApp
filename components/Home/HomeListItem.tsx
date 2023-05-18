@@ -1,23 +1,28 @@
 import { Text, StyleSheet, Pressable } from 'react-native';
 import { Colors } from '~/utils/Colors';
-import { NewsItemData } from './HomeList';
+import { type NewsItemData } from './HomeList';
 
-type ItemProps = {
+interface ItemProps {
     item: NewsItemData;
     onPress?: () => void;
-};
+}
 
 const NewsListItem = ({ item, onPress }: ItemProps) => {
     const pressHandler = () => {};
     return (
-        <Pressable style={({ pressed }) => [styles.container, pressed ? styles.containerPressed : null]} onPress={pressHandler} android_ripple={{ color: Colors.androidRippleColor}}>
-            
-        </Pressable>
+        <Pressable
+            style={ ({ pressed }) => [
+                styles.container,
+                pressed ? styles.containerPressed : null
+            ] }
+            onPress={ pressHandler }
+            android_ripple={ { color: Colors.androidRippleColor } }
+        />
     );
 };
 
 export const renderNewsListItem = ({ item }: { item: NewsItemData }) => (
-    <NewsListItem item={item} />
+    <NewsListItem item={ item } />
 );
 
 const styles = StyleSheet.create({
@@ -26,7 +31,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 70,
-        paddingHorizontal: 25,
+        addingHorizontal: 25,
     },
     containerPressed: {
         opacity: 0.7,
@@ -35,5 +40,5 @@ const styles = StyleSheet.create({
         fontSize: 22,
         color: Colors.primaryFontColorDark,
         marginLeft: 20,
-    }
+    },
 });

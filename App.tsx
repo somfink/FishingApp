@@ -38,7 +38,7 @@ const navigationStyles = {
 
 const Tab = createBottomTabNavigator();
 
-export default function App() {
+export default function App () {
     const visibility = NavigationBar.useVisibility();
 
     useEffect(() => {
@@ -54,45 +54,45 @@ export default function App() {
 
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={navigationStyles}>
+            <Tab.Navigator screenOptions={ navigationStyles }>
                 <Tab.Screen
                     name="Home"
-                    component={HomeScreen}
-                    options={{
+                    component={ HomeScreen }
+                    options={ {
                         tabBarBadge: undefined,
                         tabBarIcon: ({ color, size }) => (
-                            <Ionicons name="home" size={size} color={color} />
+                            <Ionicons name="home" size={ size } color={ color } />
                         ),
-                    }}
+                    } }
                 />
                 <Tab.Screen
                     name="Map"
-                    component={Map}
-                    options={{
+                    component={ Map }
+                    options={ {
                         tabBarIcon: ({ color, size }) => (
-                            <Ionicons name="map" size={size} color={color} />
+                            <Ionicons name="map" size={ size } color={ color } />
                         ),
                         headerShown: false,
-                    }}
+                    } }
                 />
                 <Tab.Screen
                     name="Search"
-                    component={Search}
-                    options={{
+                    component={ Search }
+                    options={ {
                         tabBarIcon: ({ color, size }) => (
-                            <Ionicons name="search" size={size} color={color} />
+                            <Ionicons name="search" size={ size } color={ color } />
                         ),
-                    }}
+                    } }
                 />
                 <Tab.Screen
                     name="Profile"
-                    component={Profile}
-                    options={{
+                    component={ Profile }
+                    options={ {
                         tabBarIcon: ({ color, size }) => (
-                            <Ionicons name="person" size={size} color={color} />
+                            <Ionicons name="person" size={ size } color={ color } />
                         ),
                         // headerShown: false,
-                    }}
+                    } }
                 />
             </Tab.Navigator>
             <StatusBar style="light" />

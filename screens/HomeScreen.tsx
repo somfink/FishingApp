@@ -3,9 +3,9 @@ import { Colors } from '~/utils/Colors';
 
 export const HomeScreen = () => {
     return (
-        <View style={styles.container}>
-            <View style={styles.tileContainer}>
-                <Image source={require('~/assets/images/fish.jpg')} style={styles.tileImage} />
+        <View style={ styles.container }>
+            <View style={ styles.tileContainer }>
+                <Image source={ require('~/assets/images/fish.jpg') } style={ styles.tileImage } />
             </View>
         </View>
     );
@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     tileImage: {
-        objectFit: "cover",
+        objectFit: 'cover',
         height: 200,
         width: '100%',
-        
+
     },
 });
