@@ -14,6 +14,7 @@ export const Colors = {
     activeTintColorLight: '#3f42e6',
 
     // STYLISTIC
-    darkGrey: '#463f63',
+    darkGrey: '#48435c',
+    lightGrey: '#564f74',
     androidRippleColor: '#3d3746',
 };

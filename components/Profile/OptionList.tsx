@@ -5,13 +5,13 @@ import { renderOptionListItem } from './OptionListItem';
 
 type MaterialIconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
 
-export type ItemData = {
+export type OptionsItemData = {
     id: string;
     title: string;
     icon: MaterialIconName;
 };
 
-const OPTION_LIST_DATA: ItemData[] = [
+const OPTIONS_LIST_DATA: OptionsItemData[] = [
     {
         id: 'personal',
         title: 'Personal Account',
@@ -37,7 +37,7 @@ const OPTION_LIST_DATA: ItemData[] = [
 export const OptionList = () => {
     return (
         <FlatList
-            data={OPTION_LIST_DATA}
+            data={OPTIONS_LIST_DATA}
             renderItem={renderOptionListItem}
             keyExtractor={item => item.id}
             style={styles.list}
@@ -49,5 +49,5 @@ const styles = StyleSheet.create({
     list: {
         flex: 1,
         paddingTop: 10,
-    }
+    },
 });

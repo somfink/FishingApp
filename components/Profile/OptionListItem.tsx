@@ -1,24 +1,35 @@
 import { Text, StyleSheet, Pressable } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Colors } from '~/utils/Colors';
-import { ItemData } from './OptionList';
+import { OptionsItemData } from './OptionList';
 
 type ItemProps = {
-    item: ItemData;
+    item: OptionsItemData;
     onPress?: () => void;
 };
 
 const OptionListItem = ({ item, onPress }: ItemProps) => {
     const pressHandler = () => {};
     return (
-        <Pressable style={styles.container} onPress={pressHandler} android_ripple={{ color: Colors.androidRippleColor}}>
-            <MaterialCommunityIcons name={item.icon} size={36} color={Colors.primaryFontColorDark} />
+        <Pressable
+            style={({ pressed }) => [
+                styles.container,
+                pressed ? styles.containerPressed : null,
+            ]}
+            onPress={pressHandler}
+            android_ripple={{ color: Colors.androidRippleColor }}
+        >
+            <MaterialCommunityIcons
+                name={item.icon}
+                size={36}
+                color={Colors.primaryFontColorDark}
+            />
             <Text style={styles.itemText}>{item.title}</Text>
         </Pressable>
     );
 };
 
-export const renderOptionListItem = ({ item }: { item: ItemData }) => (
+export const renderOptionListItem = ({ item }: { item: OptionsItemData }) => (
     <OptionListItem item={item} />
 );
 
@@ -30,9 +41,12 @@ const styles = StyleSheet.create({
         height: 70,
         paddingHorizontal: 25,
     },
+    containerPressed: {
+        opacity: 0.7,
+    },
     itemText: {
         fontSize: 22,
         color: Colors.primaryFontColorDark,
         marginLeft: 20,
-    }
+    },
 });
