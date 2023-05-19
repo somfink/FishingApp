@@ -24,7 +24,7 @@
     "include": [
         "./**/*",
         "./*",
-        ".eslintrc.js"
+        ".eslintrc.js",
       ],
     "extends": "expo/tsconfig.base"
 }

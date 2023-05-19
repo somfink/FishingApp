@@ -39,7 +39,7 @@ export const OptionList = () => {
         <FlatList
             data={ OPTIONS_LIST_DATA }
             renderItem={ renderOptionListItem }
-            keyExtractor={ item => item.id }
+            keyExtractor={ (item: OptionsItemData) => item.id }
             style={ styles.list }
         />
     );

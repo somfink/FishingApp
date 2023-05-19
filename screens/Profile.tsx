@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet, Image, Switch } from 'react-native';
-import { Colors } from '~/utils/Colors';
+import { View, Text, StyleSheet, Image, Switch, Platform } from 'react-native';
+import { Colors } from '~/utils/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { OptionList } from '~/components/Profile/OptionList';
 
 export const Profile = () => {
     const [isEnabled, setIsEnabled] = useState(false);
 
-    const toggleSwitch = () => { setIsEnabled(prevState => !prevState); };
+    const toggleSwitch = () => {
+        setIsEnabled(prevState => !prevState);
+    };
 
     return (
         <View style={ styles.container }>
@@ -43,10 +45,12 @@ export const Profile = () => {
                             onValueChange={ toggleSwitch }
                             value={ isEnabled }
                         />
+                        { /* // ADD MARGIN TO ICON ON IOS */ }
                         <MaterialCommunityIcons
                             name="theme-light-dark"
                             size={ 24 }
                             color={ Colors.primaryFontColorDark }
+                            style={ styles.switchIcon }
                         />
                     </View>
                 </View>
@@ -132,6 +136,9 @@ const styles = StyleSheet.create({
     themeSwitch: {
         flexDirection: 'row',
         alignItems: 'center',
+    },
+    switchIcon: {
+        marginLeft: Platform.OS === 'ios' ? 10 : 0,
     },
     userOptions: {
         flex: 4,

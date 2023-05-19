@@ -17,4 +17,5 @@ export const Colors = {
     darkGrey: '#48435c',
     lightGrey: '#564f74',
     androidRippleColor: '#3d3746',
+    backdropColor: '#0e0e0e88',
 };

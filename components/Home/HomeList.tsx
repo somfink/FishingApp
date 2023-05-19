@@ -1,26 +1,31 @@
 import { FlatList, StyleSheet } from 'react-native';
+import { renderNewsListItem } from './HomeListItem';
+import { mockedData } from '~/mocks/mockedNewsData';
 
 export interface NewsItemData {
     title: string;
     image: string;
     user: string;
-    date: string;
+    date: number;
     description: string;
     location: string;
     likes: number;
     comments: number;
+    id: string;
 }
 
-// export const NewsList = () => {
-//     return (
-//         <FlatList
-//             data={OPTION_LIST_DATA}
-//             renderItem={renderOptionListItem}
-//             keyExtractor={item => item.id}
-//             style={styles.list}
-//         />
-//     );
-// };
+export const NewsList = () => {
+    const data = mockedData();
+
+    return (
+        <FlatList
+            renderItem={ renderNewsListItem }
+            keyExtractor={ (item: NewsItemData) => item.id }
+            data={ data }
+            style={ styles.list }
+        />
+    );
+};
 
 const styles = StyleSheet.create({
     list: {

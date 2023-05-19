@@ -1,6 +1,6 @@
 import { Text, StyleSheet, Pressable } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Colors } from '~/utils/Colors';
+import { Colors } from '~/utils/colors';
 import { type OptionsItemData } from './OptionList';
 
 interface ItemProps {
@@ -12,25 +12,25 @@ const OptionListItem = ({ item, onPress }: ItemProps) => {
     const pressHandler = () => {};
     return (
         <Pressable
-            style={ ({ pressed }) => [
+            style={({ pressed }) => [
                 styles.container,
-                pressed ? styles.containerPressed : null
-            ] }
-            onPress={ pressHandler }
-            android_ripple={ { color: Colors.androidRippleColor } }
+                pressed ? styles.containerPressed : null,
+            ]}
+            onPress={pressHandler}
+            android_ripple={{ color: Colors.androidRippleColor }}
         >
             <MaterialCommunityIcons
-                name={ item.icon }
-                size={ 36 }
-                color={ Colors.primaryFontColorDark }
+                name={item.icon}
+                size={36}
+                color={Colors.primaryFontColorDark}
             />
-            <Text style={ styles.itemText }>{ item.title }</Text>
+            <Text style={styles.itemText}>{item.title}</Text>
         </Pressable>
     );
 };
 
 export const renderOptionListItem = ({ item }: { item: OptionsItemData }) => (
-    <OptionListItem item={ item } />
+    <OptionListItem item={item} />
 );
 
 const styles = StyleSheet.create({
