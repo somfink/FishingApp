@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet } from 'react-native';
-import { renderNewsListItem } from './HomeListItem';
+import { renderNewsListItem } from './NewsListItem';
 import { mockedData } from '~/mocks/mockedNewsData';
 
 export interface NewsItemData {

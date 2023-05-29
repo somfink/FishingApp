@@ -1,7 +1,7 @@
 import { Text, StyleSheet, Pressable, View, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '~/utils/colors';
-import { type NewsItemData } from './HomeList';
+import { type NewsItemData } from './NewsList';
 
 interface ItemProps {
     item: NewsItemData;
@@ -9,22 +9,19 @@ interface ItemProps {
 }
 
 const NewsListItem = ({ item, onPress }: ItemProps) => {
-    const pressHandler = () => {};
-
     return (
-        <Pressable
-            style={ ({ pressed }) => [
-                styles.container,
-                pressed ? styles.containerPressed : null
-            ] }
-            onPress={ pressHandler }
-            android_ripple={ { color: Colors.androidRippleColor } }
-        >
-            <View style={ styles.tileContainer }>
+        <View style={ styles.tileContainer }>
+            <Pressable
+                style={ ({ pressed }) => [
+                    styles.button,
+                    pressed ? styles.buttonPressed : null
+                ] }
+                onPress={ onPress }
+                android_ripple={ { color: Colors.androidRippleColor } }
+            >
                 <Image
                     source={ { uri: item.image } }
                     style={ styles.tileImage }
-                    blurRadius={ 1 }
                 />
                 <View style={ styles.backdrop }>
                     <View style={ styles.tileInfoContainer }>
@@ -36,42 +33,60 @@ const NewsListItem = ({ item, onPress }: ItemProps) => {
                         </View>
                         <View>
                             <View style={ styles.socialsTextContainer }>
-                                <Ionicons name="heart" size={ 20 } color={ Colors.primaryFontColorDark } />
-                                <Text style={ styles.socialsText }>{ item.likes }</Text>
+                                <Ionicons
+                                    name="heart"
+                                    size={ 20 }
+                                    color={ Colors.primaryFontColorDark }
+                                />
+                                <Text style={ styles.socialsText }>
+                                    { item.likes }
+                                </Text>
                             </View>
                             <View style={ styles.socialsTextContainer }>
-                                <Ionicons name="chatbubble-ellipses" size={ 20 } color={ Colors.primaryFontColorDark } />
-                                <Text style={ styles.socialsText }>{ item.comments }</Text>
+                                <Ionicons
+                                    name="chatbubble-ellipses"
+                                    size={ 20 }
+                                    color={ Colors.primaryFontColorDark }
+                                />
+                                <Text style={ styles.socialsText }>
+                                    { item.comments }
+                                </Text>
                             </View>
                         </View>
                     </View>
                 </View>
-            </View>
-        </Pressable>
+            </Pressable>
+        </View>
     );
 };
 
-export const renderNewsListItem = ({ item }: { item: NewsItemData }) => (
-    <NewsListItem item={ item } />
-);
+export const renderNewsListItem = ({ item }: { item: NewsItemData }) => {
+    const pressHandler = () => {};
+    return (
+        <NewsListItem item={ item } onPress={ pressHandler }/>
+    );
+};
 
 const styles = StyleSheet.create({
-    container: {
+    tileContainer: {
         flex: 1,
         height: 200,
         marginHorizontal: 20,
         marginVertical: 10,
-        overflow: 'hidden',
         borderRadius: 15,
         borderWidth: 2,
         borderColor: Colors.lightGrey,
+        shadowColor: 'black',
+        shadowOpacity: 0.25,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 4,
+        overflow: 'hidden',
     },
-    containerPressed: {
+    button: {
+        flex: 1,
+    },
+    buttonPressed: {
         opacity: 0.7,
-    },
-    tileContainer: {
-        width: '100%',
-        height: '100%',
     },
     tileImage: {
         objectFit: 'cover',

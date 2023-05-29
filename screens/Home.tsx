@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import { NewsList } from '~/components/Home/HomeList';
+import { NewsList } from '~/components/News/NewsList';
 import { Colors } from '~/utils/colors';
 
 export const Home = () => {
